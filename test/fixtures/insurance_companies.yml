@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company: MyString
+  rate: 9.99
+  excessprotector: 9.99
+  pvt: 9.99
+  lossofuse: 9.99
+  pcf: 9.99
+  itl: 9.99
+  stampduty: 9.99
+
+two:
+  company: MyString
+  rate: 9.99
+  excessprotector: 9.99
+  pvt: 9.99
+  lossofuse: 9.99
+  pcf: 9.99
+  itl: 9.99
+  stampduty: 9.99
