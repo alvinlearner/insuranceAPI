@@ -82,3 +82,4 @@ production:
   database: insurance_api_production
   username: insurance_api
   password: <%= ENV["INSURANCE_API_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
