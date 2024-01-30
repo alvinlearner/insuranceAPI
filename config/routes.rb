@@ -7,12 +7,21 @@ Rails.application.routes.draw do
 
 
         # Sessions routes
-        get '/login', to: 'sessions#new', as: 'login'
-        post '/login', to: 'sessions#create'
+        # get '/login', to: 'sessions#new', as: 'login'
+        # post '/login', to: 'sessions#create'
     
-        get :logged_in, to: "sessions#logged_in"
+        # get :logged_in, to: "sessions#logged_in"
     
         delete '/logout', to: 'sessions#destroy', as: 'logout'
+
+
+
+
+        post "/login", to: "sessions#create"
+        get "/authorized", to: "sessions#show"
+
+
+
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.

@@ -8,15 +8,35 @@ class AdminsController < ApplicationController
        render @admin = Admin.all 
     end
 
-    def create
-        @admin = Admin.new(admin_params)
-      if @admin.save
-        session[:admin_id] = @admin.id # Log in the user after successful registration
-        redirect_to user_path(@admin), notice: 'User was successfully created.'
+    # def create
+    #     @admin = Admin.new(admin_params)
+    #   if @admin.save
+    #     session[:admin_id] = @admin.id # Log in the user after successful registration
+    #     redirect_to user_path(@admin), notice: 'User was successfully created.'
+    #   else
+    #     render :new
+    #   end
+    # end
+
+
+    
+  def create
+    admin = Admin.new(admin_params)
+      
+    if admin.save
+      token = issue_token(admin)
+      render json: {admin: AdminSerializer.new(admin), jwt: token}
+    else
+      if admin.error.messages
+        render json: {error: admin.error.messages}
       else
-        render :new
+        render json: {error: "Admin could not be created"}
       end
     end
+  end	
+  
+
+
   
     def show
         @admin = Admin.find(params[:id])
@@ -42,3 +62,6 @@ class AdminsController < ApplicationController
     end
   end
   
+
+
+
