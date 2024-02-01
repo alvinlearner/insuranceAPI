@@ -13,12 +13,12 @@ Rails.application.routes.draw do
         # get :logged_in, to: "sessions#logged_in"
     
         delete '/logout', to: 'sessions#destroy', as: 'logout'
-
-
-
-
         post "/login", to: "sessions#create"
         get "/authorized", to: "sessions#show"
+
+        # CUSTOM ROUTES
+
+        get "/clients_count", to: "clients#count"
 
 
 
